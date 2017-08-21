@@ -8,7 +8,11 @@ element.innerHTML = "A new value";
 
 // going to make the image move on click
 var image = document.getElementById('madipic');
-
+var marginLeft = 0;
+function moveRight() {
+    marginLeft += 10;
+    img.style.marginLeft = marginLeft + 'px';
+}
 image.onClick = function() {
-   image.style.marginLeft = '500px'; 
+   var interval = setInterval(moveRight, 100);
 };
