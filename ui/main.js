@@ -11,7 +11,7 @@ var image = document.getElementById('madipic');
 var marginLeft = 0;
 function moveRight() {
     marginLeft += 10;
-    img.style.marginLeft = marginLeft + 'px';
+    image.style.marginLeft = marginLeft + 'px';
 }
 image.onclick = function() {
    var interval = setInterval(moveRight, 100);
