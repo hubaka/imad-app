@@ -21,7 +21,7 @@ var counter = 0;
 var buttonclick = document.getElementById("counter");
 buttonclick.onclick = function() {
     
-    var request = XMLHttpRequest();
+    var request = new XMLHttpRequest();
     request.open('GET', 'http://aillanan.imad.hasura-app.io/counter', true);
     request.send(null);
     request.onreadystatechange = function() {
