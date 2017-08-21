@@ -10,5 +10,5 @@ element.innerHTML = "A new value";
 var image = document.getElementById('madipic');
 
 image.onClick = function() {
-   image.style.marginLeft = '100px'; 
+   image.style.marginLeft = '500px'; 
 };
