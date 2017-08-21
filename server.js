@@ -71,7 +71,7 @@ app.get('/', function (req, res) {
 var count=0;
 app.get('/counter', function(req,res){
     count += 1;
-    res.send(counter.tostring());
+    res.send(count.tostring());
 });
 
 app.get('/:articleName', function (req, res) {
