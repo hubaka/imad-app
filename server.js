@@ -10,16 +10,19 @@ var articles =
     'article-one': {
         title: "article-one",
         heading: "Article-One",
+        date:   "20th August 2017",
         content: "This is article one content."
     },
     'article-two': {
         title: "article-two",
         heading: "Article-two",
+        date:   "21st August 2017",
         content: "This is article two content."
     },
     'article-three': {
         title: "article-three",
         heading: "Article-Three",
+        date:   "22nd August 2017",
         content: "This is article three content."
     }
 };
@@ -28,6 +31,7 @@ function createtemplate(data) {
     var title = data.title;
     var heading = data.heading;
     var content = data.content;
+    var date    = data.date;
     var htmltemplate =
         `<html>
             <head>
@@ -47,7 +51,7 @@ function createtemplate(data) {
                         ${heading}
                     </h1>
                     <div>
-                        Aug 20th, 2017
+                        ${date}
                     </div>
                     <div>
                         <p>
