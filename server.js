@@ -68,6 +68,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var count=0;
+app.get('/counter', function(req,res){
+    count += 1;
+    res.send(counter.tostring());
+});
+
 app.get('/:articleName', function (req, res) {
  //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
  var articleName = req.params.articleName;
