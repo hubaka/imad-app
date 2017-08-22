@@ -74,6 +74,13 @@ app.get('/counter', function(req,res){
     res.send(count.toString());
 });
 
+var namesli = [];
+app.get('/:submit-name', function (req, res) {
+ var param = req.params.name;
+ namesli.push(param);
+ res.send(JSON.stringify(namesli));
+});
+
 app.get('/:articleName', function (req, res) {
  //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
  var articleName = req.params.articleName;
