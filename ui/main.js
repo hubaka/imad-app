@@ -1,7 +1,7 @@
 console.log('Loaded!');
 
 
-// chanding the main text printed in the page
+// chanding the main text printned in the page
 // var element = document.getElementById("main-text");
 // element.innerHTML = "A new value";
 
@@ -33,4 +33,17 @@ buttonclick.onclick = function() {
             }
         }
     }
+}
+
+var inputvalue = document.getElementById("name");
+var namevar = inputvalue.value;
+var submit = document.getElementById("submitbutton");
+submit.onclick = function() {
+    var names = ['name1', 'name2', 'name3'];
+    var list = '';
+    for (var i=0; i<names.length; i++) {
+        list += '<li>' + names[i] + '</li>';
+    }
+    var ulist = document.getElementById("namelist");
+    ulist.innerHTML = list;
 }
