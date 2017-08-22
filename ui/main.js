@@ -35,15 +35,27 @@ buttonclick.onclick = function() {
     }
 }
 
-var inputvalue = document.getElementById("name");
-var namevar = inputvalue.value;
 var submit = document.getElementById("submitbutton");
 submit.onclick = function() {
-    var names = ['name1', 'name2', 'name3'];
-    var list = '';
-    for (var i=0; i<names.length; i++) {
-        list += '<li>' + names[i] + '</li>';
+    
+    var inputvalue = document.getElementById("name");
+    var name = inputvalue.value;
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://aillanan.imad.hasura-app.io/submit-name?name=' + name, true);
+    request.send(null);
+    
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                    var inputvalue = request.responseText;
+                    var namevar = JSON.prase(inputvalue.value);
+                    var list = '';
+                    for (var i=0; i<names.length; i++) {
+                        list += '<li>' + names[i] + '</li>';
+                    }
+                    var ulist = document.getElementById("namelist");
+                    ulist.innerHTML = list;           
+            }
+        }
     }
-    var ulist = document.getElementById("namelist");
-    ulist.innerHTML = list;
 }
