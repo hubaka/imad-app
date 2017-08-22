@@ -75,7 +75,7 @@ app.get('/counter', function(req,res){
 });
 
 var namesli = [];
-app.get('/:submit-name', function (req, res) {
+app.get('/:submit-name/:name', function (req, res) {
  var param = req.params.name;
  namesli.push(param);
  res.send(JSON.stringify(namesli));
