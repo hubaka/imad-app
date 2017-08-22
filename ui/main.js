@@ -50,8 +50,8 @@ submit.onclick = function() {
                     var inputvalue = request.responseText;
                     var namevar = JSON.prase(inputvalue.value);
                     var list = '';
-                    for (var i=0; i<names.length; i++) {
-                        list += '<li>' + names[i] + '</li>';
+                    for (var i=0; i<namevar.length; i++) {
+                        list += '<li>' + namevar[i] + '</li>';
                     }
                     var ulist = document.getElementById("namelist");
                     ulist.innerHTML = list;           
