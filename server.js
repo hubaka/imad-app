@@ -18,27 +18,27 @@ var config = {
 //create pool configuration
 var pool = new Pool(config);
 
-var articles = 
-{
-    'article-one': {
-        title: "article-one",
-        heading: "Article-One",
-        date:   "20th August 2017",
-        content: "This is article one content."
-    },
-    'article-two': {
-        title: "article-two",
-        heading: "Article-two",
-        date:   "21st August 2017",
-        content: "This is article two content."
-    },
-    'article-three': {
-        title: "article-three",
-        heading: "Article-Three",
-        date:   "22nd August 2017",
-        content: "This is article three content."
-    }
-};
+// var articles = 
+// {
+//     'article-one': {
+//         title: "article-one",
+//         heading: "Article-One",
+//         date:   "20th August 2017",
+//         content: "This is article one content."
+//     },
+//     'article-two': {
+//         title: "article-two",
+//         heading: "Article-two",
+//         date:   "21st August 2017",
+//         content: "This is article two content."
+//     },
+//     'article-three': {
+//         title: "article-three",
+//         heading: "Article-Three",
+//         date:   "22nd August 2017",
+//         content: "This is article three content."
+//     }
+// };
 
 function createtemplate(data) {
     var title = data.title;
@@ -109,7 +109,7 @@ app.get('/article/:articleName', function (req, res) {
  //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
  //var articleName = req.params.articleName;
  //res.send(createtemplate(articles[articleName]));
- pool.query("SELECT * from article WHERE title='" + req.params.articleName + "'", function (err,result) {
+ pool.query("SELECT * from article WHERE title= $1", [req.params.articleName], function (err,result) {
      if (err) {
          res.status(500).send(err.toString());
      }
