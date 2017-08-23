@@ -105,10 +105,18 @@ app.get('/:submit-name', function (req, res) {
  res.send(JSON.stringify(namesli));
 });
 
-app.get('/:articleName', function (req, res) {
+app.get('/article/:articleName', function (req, res) {
  //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
- var articleName = req.params.articleName;
- res.send(createtemplate(articles[articleName]));
+ //var articleName = req.params.articleName;
+ //res.send(createtemplate(articles[articleName]));
+ pool.query("SELECT * from article WHERE title='" + req.params.articleName + "'", function (err,result) {
+     if (err) {
+         res.status(500).send(err.toString());
+     }
+     else {
+         res.send(JSON.stringify(result));
+     }
+ });
 });
 
 app.get('/ui/style.css', function (req, res) {
