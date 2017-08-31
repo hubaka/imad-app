@@ -140,8 +140,8 @@ app.get('/ui/main.js', function(req, res) {
 // Use 8080 only for local development if you already have apache running on 80
 
 app.get('/hash/:input', function(req,res){
-    var hashedstring = hash(input, "this is random string");
-    res.send(hashestring);
+    var hashedstring = hash(req.params.input, "this is random string");
+    res.send(hashedstring);
 });
 var port = 80;
 app.listen(port, function () {
